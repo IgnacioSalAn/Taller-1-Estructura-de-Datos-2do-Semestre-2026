@@ -52,30 +52,36 @@ void ListaRespuestas::eliminarPorUsuario(int idUsuario) { // Recorre la lista y 
     }
 }
 
-void ListaRespuestas::contarPorUsuario(std::map<int, int>& conteo) const { // Acumula la cantidad de respuestas de cada usuario en un map
-    Respuesta* actual = cabeza; // Comienza desde el primer nodo
-    while (actual != nullptr) { // Iteracion lineal sobre la lista enlazada
-        conteo[actual->getIdUsuario()]++; // Incrementa el contador del usuario en el mapa
+int ListaRespuestas::contarRespuestasDeUsuario(int idUsuario) const { // Cuenta cuantas respuestas pertenecen a un usuario especifico
+    int total = 0;
+    Respuesta* actual = cabeza; // Comienza desde el primer nodo de la lista
+    while (actual != nullptr) { // Iteracion lineal sobre los nodos
+        if (actual->getIdUsuario() == idUsuario) {
+            total++; // Incrementa si el autor coincide
+        }
         actual = actual->getSiguiente(); // Avanza al siguiente nodo
     }
+    return total;
 }
 
 std::string ListaRespuestas::aCSV() const { // Genera la cadena CSV preservando la secuencia cronologica original de los mensajes
-    if (cabeza == nullptr) { // Si la lista esta vacia:
+    if (cabeza == nullptr || cantidad == 0) { // Si la lista esta vacia:
         return ""; // Retorna un string vacio
     }
 
-    std::vector<Respuesta*> nodos; // Vector auxiliar para almacenar punteros temporales
-    Respuesta* actual = cabeza; // Puntero iterador
-    while (actual != nullptr) { // Guarda las direcciones de todos los nodos de cabeza a cola
-        nodos.push_back(actual); // Inserta el nodo en el vector temporario
-        actual = actual->getSiguiente(); // Avanza al siguiente elemento
+    // Usamos exclusivamente un arreglo dinamico de punteros en bajo nivel (sin librerias STL ni vector)
+    Respuesta** nodos = new Respuesta*[cantidad];
+    Respuesta* actual = cabeza;
+    int idx = 0;
+    while (actual != nullptr && idx < cantidad) { // Almacena los punteros a los nodos
+        nodos[idx++] = actual;
+        actual = actual->getSiguiente();
     }
 
     std::ostringstream oss; // Stream para construir el texto resultante
     bool primero = true; // Control de separadores por coma
-    // Recorre el vector en orden inverso (de la respuesta mas antigua a la mas reciente):
-    for (int i = static_cast<int>(nodos.size()) - 1; i >= 0; i--) {
+    // Recorre el arreglo en orden inverso (de la respuesta mas antigua a la mas reciente):
+    for (int i = idx - 1; i >= 0; i--) {
         if (!primero) {
             oss << ","; // Imprime coma entre respuestas
         }
@@ -84,6 +90,8 @@ std::string ListaRespuestas::aCSV() const { // Genera la cadena CSV preservando 
             << nodos[i]->getContenido(); // Agrega la respuesta formateada ID_Usuario_Mensaje
         primero = false;
     }
+
+    delete[] nodos; // Libera el arreglo auxiliar de punteros en memoria dinamica
     return oss.str(); // Devuelve la cadena armada
 }
 

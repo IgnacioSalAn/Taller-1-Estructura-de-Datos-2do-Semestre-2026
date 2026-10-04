@@ -2,7 +2,6 @@
 #define LISTARESPUESTAS_H
 
 #include <string>
-#include <map>
 #include "Respuesta.h"
 
 /**
@@ -35,7 +34,7 @@ public:  // Metodos publicos (accesibles desde cualquier parte del programa)
     Respuesta* getCabeza() const; // Getter del puntero al primer nodo de la lista
 
     void eliminarPorUsuario(int idUsuario); // Elimina de la lista todas las respuestas de un usuario
-    void contarPorUsuario(std::map<int, int>& conteo) const; // Acumula en un mapa las respuestas creadas
+    int contarRespuestasDeUsuario(int idUsuario) const; // Acumula en un mapa las respuestas creadas
     std::string aCSV() const; // Convierte la lista enlazada a una cadena formateada para guardar en CSV
 
     void liberar(); // Metodo auxiliar que elimina todos los nodos liberando la memoria dinamica

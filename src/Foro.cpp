@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <map>
 #include <vector>
 #include <cctype>
 #include <cstdlib>
@@ -435,18 +434,19 @@ void Foro::publicarTema() { // Opcion C: Permite publicar un nuevo tema ubicando
 // D. Estadisticas
 // ---------------------------------------------------------------------
 
-void Foro::mostrarEstadisticas() const { // Opcion D: Muestra las metricas del foro (usuarios con mas respuestas, temas mas comentados y expansiones de realloc)
+void Foro::mostrarEstadisticas() const {
     std::cout << "\n[---------- Foro Comunitario ----------]\n\n";
 
-    // a. Usuario(s) con mas respuestas
-    std::map<int, int> conteo;
-    for (int i = 0; i < arregloTemas.getCantidad(); i++) {
-        arregloTemas.obtenerEn(i)->getRespuestas().contarPorUsuario(conteo);
-    }
+    // a. Usuario(s) con mas respuestas (usando exclusivamente nuestras estructuras de datos)
     int maxRespuestas = 0;
-    for (const auto& par : conteo) {
-        if (par.second > maxRespuestas) {
-            maxRespuestas = par.second;
+    for (int i = 0; i < arregloUsuarios.getCantidad(); i++) {
+        int idU = arregloUsuarios.obtenerEn(i)->getId();
+        int totalU = 0;
+        for (int j = 0; j < arregloTemas.getCantidad(); j++) {
+            totalU += arregloTemas.obtenerEn(j)->getRespuestas().contarRespuestasDeUsuario(idU);
+        }
+        if (totalU > maxRespuestas) {
+            maxRespuestas = totalU;
         }
     }
 
@@ -454,12 +454,16 @@ void Foro::mostrarEstadisticas() const { // Opcion D: Muestra las metricas del f
     if (maxRespuestas == 0) {
         std::cout << "  (No hay respuestas registradas en el foro)\n";
     } else {
-        for (const auto& par : conteo) {
-            if (par.second == maxRespuestas) {
-                Usuario* u = arregloUsuarios.buscarPorId(par.first);
-                std::cout << "  Id: " << par.first
-                          << " | Nombre: " << (u != nullptr ? u->getNombre() : "Desconocido")
-                          << " | Respuestas: " << par.second << "\n";
+        for (int i = 0; i < arregloUsuarios.getCantidad(); i++) {
+            Usuario* u = arregloUsuarios.obtenerEn(i);
+            int totalU = 0;
+            for (int j = 0; j < arregloTemas.getCantidad(); j++) {
+                totalU += arregloTemas.obtenerEn(j)->getRespuestas().contarRespuestasDeUsuario(u->getId());
+            }
+            if (totalU == maxRespuestas) {
+                std::cout << "  Id: " << u->getId()
+                          << " | Nombre: " << u->getNombre()
+                          << " | Respuestas: " << totalU << "\n";
             }
         }
     }
@@ -492,10 +496,6 @@ void Foro::mostrarEstadisticas() const { // Opcion D: Muestra las metricas del f
     std::cout << "\nNumero de expansiones del arreglo de usuarios: "
               << arregloUsuarios.getExpansiones() << std::endl;
 }
-
-// ---------------------------------------------------------------------
-// E. Salir
-// ---------------------------------------------------------------------
 
 void Foro::guardarTemas() const { // Guarda los datos de temas y respuestas formateados en el archivo temas.csv al salir.
     std::ofstream archivo(rutaTemas);
