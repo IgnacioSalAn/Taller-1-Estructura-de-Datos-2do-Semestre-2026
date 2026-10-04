@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/main.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/main.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/main.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/include/model/Usuario.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/Usuario.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/Usuario.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/include/model/Usuario.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/include/model/Respuesta.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/Respuesta.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/Respuesta.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/include/model/Respuesta.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/include/model/Tema.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/Tema.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/Tema.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/include/model/Tema.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/include/model/NodoRespuesta.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/NodoRespuesta.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/NodoRespuesta.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/include/model/NodoRespuesta.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/include/model/ListaRespuestas.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/ListaRespuestas.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/ListaRespuestas.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/include/model/ListaRespuestas.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/include/model/ArregloUsuarios.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/ArregloUsuarios.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/ArregloUsuarios.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/include/model/ArregloUsuarios.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/include/model/ArregloTemas.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/ArregloTemas.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/ArregloTemas.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/include/model/ArregloTemas.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug",
+  "command": "/usr/bin/c++ -g -std=gnu++20 -fcolor-diagnostics -o CMakeFiles/Taller_1_Est__Datos_.dir/include/model/ForoFacade.cpp.o -c \"/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/ForoFacade.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/include/model/ForoFacade.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/Taller 1 Est. Datos./Avance taller 1/cmake-build-debug/CMakeFiles/Taller_1_Est__Datos_.dir/include/model/ForoFacade.cpp.o"
+}
+]
