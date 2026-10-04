@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/main.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/main.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/main.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/main.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/Usuario.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Usuario.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Usuario.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/Usuario.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/Respuesta.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Respuesta.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Respuesta.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/Respuesta.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/ListaRespuestas.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/ListaRespuestas.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/ListaRespuestas.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/ListaRespuestas.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/Tema.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Tema.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Tema.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/Tema.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/ArregloUsuarios.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/ArregloUsuarios.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/ArregloUsuarios.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/ArregloUsuarios.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/ArregloTemas.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/ArregloTemas.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/ArregloTemas.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/ArregloTemas.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/Utilidades.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Utilidades.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Utilidades.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/Utilidades.cpp.o"
+},
+{
+  "directory": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug",
+  "command": "/usr/bin/c++ -I\"/Users/ignaciosalomon/Desktop/taller 1 Scott/src\" -g -std=gnu++17 -fcolor-diagnostics -o CMakeFiles/Taller1_ForoComunitario.dir/src/Foro.cpp.o -c \"/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Foro.cpp\"",
+  "file": "/Users/ignaciosalomon/Desktop/taller 1 Scott/src/Foro.cpp",
+  "output": "/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir/src/Foro.cpp.o"
+}
+]

@@ -8,6 +8,7 @@
 #include <cctype>
 #include <cstdlib>
 
+// Constructor (Guarda las rutas de los archivos CSV y pone el usuario activo en nullptr)
 Foro::Foro(const std::string& rutaUsuarios, const std::string& rutaTemas)
     : usuarioActual(nullptr), rutaUsuarios(rutaUsuarios), rutaTemas(rutaTemas) {}
 
@@ -15,20 +16,20 @@ Foro::Foro(const std::string& rutaUsuarios, const std::string& rutaTemas)
 // 2.2 Carga inicial
 // ---------------------------------------------------------------------
 
-void Foro::cargarUsuarios() {
-    std::ifstream archivo(rutaUsuarios);
-    if (!archivo.is_open()) {
+void Foro::cargarUsuarios() { // Lee el archivo usuarios.csv, valida la integridad de sus campos e inserta los usuarios en el arreglo dinámico
+    std::ifstream archivo(rutaUsuarios); // Abre el archivo en modo lectura.
+    if (!archivo.is_open()) { // Si el archivo no existe o no se puede abrir:
         std::cerr << "Error: no se pudo abrir el archivo '" << rutaUsuarios << "'." << std::endl;
-        std::exit(1);
+        std::exit(1); // Detiene la ejecucion inmediatamente como exige la pauta
     }
 
     std::string linea;
-    while (std::getline(archivo, linea)) {
+    while (std::getline(archivo, linea)) { // Lee linea por linea
         linea = Utilidades::recortar(linea);
-        if (linea.empty()) continue;
+        if (linea.empty()) continue; // Salta lineas vacias
 
         std::vector<std::string> campos = Utilidades::dividir(linea, ';');
-        if (campos.size() != 2) {
+        if (campos.size() != 2) { // Si la linea no tiene exactamente 2 campos:
             std::cerr << "Error: formato invalido en usuarios.csv -> \"" << linea << "\"" << std::endl;
             std::exit(1);
         }
@@ -45,26 +46,25 @@ void Foro::cargarUsuarios() {
             std::exit(1);
         }
 
-        int id = std::atoi(idTexto.c_str());
-        arregloUsuarios.agregar(new Usuario(id, nombre));
+        int id = std::atoi(idTexto.c_str()); // Convierte la ID a entero.
+        arregloUsuarios.agregar(new Usuario(id, nombre)); // Agrega el nuevo usuario
     }
-    archivo.close();
+    archivo.close(); // Cierra el archivo
 }
 
-void Foro::cargarTemas() {
-    std::ifstream archivo(rutaTemas);
+void Foro::cargarTemas() { // Lee el archivo temas.csv, comprueba referencias cruzadas de usuarios e inserta los datos en el sistema
+    std::ifstream archivo(rutaTemas); // Abre el archivo de temas
     if (!archivo.is_open()) {
-        // Si el archivo de temas no existe, el foro simplemente parte vacio.
-        return;
+        return; // Si el archivo de temas no existe, el foro inicia simplemente sin temas
     }
 
     std::string linea;
-    while (std::getline(archivo, linea)) {
+    while (std::getline(archivo, linea)) { // Lee cada linea de temas
         linea = Utilidades::recortar(linea);
         if (linea.empty()) continue;
 
         std::vector<std::string> campos = Utilidades::dividir(linea, ';');
-        if (campos.size() < 4) {
+        if (campos.size() < 4) { // Valida campos obligatorios
             std::cerr << "Error: formato invalido en temas.csv -> \"" << linea << "\"" << std::endl;
             std::exit(1);
         }
@@ -94,7 +94,7 @@ void Foro::cargarTemas() {
         }
 
         int idUsuario = std::atoi(idUsuarioTexto.c_str());
-        if (arregloUsuarios.buscarPorId(idUsuario) == nullptr) {
+        if (arregloUsuarios.buscarPorId(idUsuario) == nullptr) { // Verifica discrepancia de autor inexistente
             std::cerr << "Error: discrepancia entre temas.csv y usuarios.csv -> el tema '" << id
                       << "' pertenece al usuario " << idUsuario << ", que no existe en usuarios.csv." << std::endl;
             std::exit(1);
@@ -106,9 +106,7 @@ void Foro::cargarTemas() {
         if (!respuestasRecortadas.empty()) {
             std::vector<std::string> mensajes = Utilidades::dividir(respuestasRecortadas, ',');
 
-            // Se insertan en orden inverso: como cada insertarAlInicio pone el
-            // elemento en la cabeza, insertar de atras hacia adelante deja la
-            // lista final (cabeza -> cola) en el mismo orden del archivo.
+            // Se insertan en orden inverso: como cada insertarAlInicio pone el elemento en la cabeza, insertar de atras hacia adelante deja la lista final (cabeza -> cola) en el mismo orden del archivo.
             for (int i = static_cast<int>(mensajes.size()) - 1; i >= 0; i--) {
                 std::string msg = Utilidades::recortar(mensajes[i]);
                 if (msg.empty()) continue;
@@ -146,7 +144,7 @@ void Foro::cargarTemas() {
             }
         }
 
-        arregloTemas.agregarAlFinal(tema);
+        arregloTemas.agregarAlFinal(tema); // Agrega respetando el orden del archivo
     }
     archivo.close();
 }
@@ -155,7 +153,7 @@ void Foro::cargarTemas() {
 // 2.3 Autenticacion
 // ---------------------------------------------------------------------
 
-void Foro::autenticar() {
+void Foro::autenticar() { // Solicita el ID del usuario en consola para iniciar sesion en la aplicacion.
     while (true) {
         std::cout << "\n[---------- Foro Comunitario ----------]\n";
         std::cout << "Ingrese su numero de usuario: ";
@@ -175,7 +173,7 @@ void Foro::autenticar() {
             continue;
         }
 
-        usuarioActual = usuario;
+        usuarioActual = usuario; // Asigna la sesion activa
         std::cout << "Bienvenido/a " << usuario->getNombre() << std::endl;
         break;
     }
@@ -185,7 +183,7 @@ void Foro::autenticar() {
 // 2.4 Menu principal
 // ---------------------------------------------------------------------
 
-void Foro::mostrarTemas() const {
+void Foro::mostrarTemas() const { // Muestra el menu principal de opciones en la consola
     std::cout << "\n[---------- Foro Comunitario ----------]\n\n";
     std::cout << "Temas:\n";
     for (int i = 0; i < arregloTemas.getCantidad(); i++) {
@@ -199,7 +197,7 @@ void Foro::mostrarTemas() const {
     std::cout << "E) Salir\n";
 }
 
-void Foro::mostrarMenuPrincipal() {
+void Foro::mostrarMenuPrincipal() { // Bucle interactivo para la eleccion de opciones en el menu principal
     bool salir = false;
     while (!salir) {
         mostrarTemas();
@@ -230,7 +228,7 @@ void Foro::mostrarMenuPrincipal() {
 // A. Revisar un tema
 // ---------------------------------------------------------------------
 
-void Foro::revisarTema() {
+void Foro::revisarTema() { // Opcion A: Despliega un tema, permite leer sus respuestas y comentarlo (desplazandolo al inicio)
     std::cout << "\n[---------- Foro Comunitario ----------]\n\n";
     std::cout << "Ingrese el Id del tema que desea revisar: ";
     std::string id;
@@ -286,7 +284,7 @@ void Foro::revisarTema() {
     }
 }
 
-void Foro::comentarTema(Tema* tema) {
+void Foro::comentarTema(Tema* tema) { // Valida e inserta un nuevo comentario dentro de la lista de respuestas de un tema
     std::cout << "\nIngrese su comentario: ";
     std::string contenido;
     std::getline(std::cin, contenido);
@@ -307,7 +305,7 @@ void Foro::comentarTema(Tema* tema) {
 // B. Eliminar usuario
 // ---------------------------------------------------------------------
 
-void Foro::eliminarUsuario() {
+void Foro::eliminarUsuario() { // Opcion B: Elimina un usuario especifico, eliminando sus publicaciones y respuestas en cascada
     std::cout << "\n[---------- Foro Comunitario ----------]\n\n";
     std::cout << "Usuarios:\n";
     for (int i = 0; i < arregloUsuarios.getCantidad(); i++) {
@@ -331,7 +329,7 @@ void Foro::eliminarUsuario() {
         return;
     }
 
-    Usuario* usuario = arregloUsuarios.buscarPorId(id);
+    Usuario* usuario = arregloUsuarios.buscarPorId(id); // Valida autoevaluacion / autoeliminacion.
     if (usuario == nullptr) {
         std::cout << "Error: usuario no encontrado" << std::endl;
         return;
@@ -387,7 +385,7 @@ void Foro::eliminarUsuario() {
 // C. Publicar
 // ---------------------------------------------------------------------
 
-std::string Foro::generarIdTemaUnico() const {
+std::string Foro::generarIdTemaUnico() const { // Genera un ID aleatorio garantizando la no duplicidad dentro de los temas existentes
     std::string id;
     do {
         id = Utilidades::generarIdAleatorio();
@@ -395,7 +393,7 @@ std::string Foro::generarIdTemaUnico() const {
     return id;
 }
 
-void Foro::publicarTema() {
+void Foro::publicarTema() { // Opcion C: Permite publicar un nuevo tema ubicandolo al inicio (indice 0) del arreglo dinamico.
     std::cout << "\n[---------- Foro Comunitario ----------]\n\n";
 
     std::string titulo;
@@ -437,7 +435,7 @@ void Foro::publicarTema() {
 // D. Estadisticas
 // ---------------------------------------------------------------------
 
-void Foro::mostrarEstadisticas() const {
+void Foro::mostrarEstadisticas() const { // Opcion D: Muestra las metricas del foro (usuarios con mas respuestas, temas mas comentados y expansiones de realloc)
     std::cout << "\n[---------- Foro Comunitario ----------]\n\n";
 
     // a. Usuario(s) con mas respuestas
@@ -499,7 +497,7 @@ void Foro::mostrarEstadisticas() const {
 // E. Salir
 // ---------------------------------------------------------------------
 
-void Foro::guardarTemas() const {
+void Foro::guardarTemas() const { // Guarda los datos de temas y respuestas formateados en el archivo temas.csv al salir.
     std::ofstream archivo(rutaTemas);
     for (int i = 0; i < arregloTemas.getCantidad(); i++) {
         Tema* t = arregloTemas.obtenerEn(i);
@@ -513,7 +511,7 @@ void Foro::guardarTemas() const {
 // Flujo principal
 // ---------------------------------------------------------------------
 
-void Foro::ejecutar() {
+void Foro::ejecutar() { // Inicia la secuencia completa de la aplicacion Foro.
     cargarUsuarios();
     cargarTemas();
     autenticar();

@@ -13,32 +13,33 @@
  * para respetar el orden original del archivo.
  */
 class ArregloTemas {
-private:
-    Tema** temas;
-    int capacidad;
-    int cantidad;
+private: // Atributos privados para el control interno del arreglo
+    Tema** temas; // Puntero doble que referencia a un arreglo dinamico de punteros a Tema
+    int capacidad; // Capacidad maxima de elementos que soporta el arreglo antes de expandirse
+    int cantidad; // Cantidad actual de temas almacenados en el arreglo
 
-    void expandirSiEsNecesario();
+    void expandirSiEsNecesario(); // Metodo privado para verificar y redimensionar el arreglo en memoria
 
-public:
-    explicit ArregloTemas(int capacidadInicial = 5);
-    ~ArregloTemas();
+public: // Metodos publicos para interactuar con la estructura de datos
+    explicit ArregloTemas(int capacidadInicial = 5); // Constructor con capacidad por defecto de 5
+    ~ArregloTemas(); // Destructor para liberar la memoria dinamica reservada
 
-    // No se permite copiar (evita doble liberacion de memoria)
-    ArregloTemas(const ArregloTemas&) = delete;
-    ArregloTemas& operator=(const ArregloTemas&) = delete;
+    // Deshabilita la copia del arreglo para evitar la doble liberacion accidental de memoria
+    ArregloTemas(const ArregloTemas&) = delete; // Se deshabilita la copia
+    ArregloTemas& operator=(const ArregloTemas&) = delete; // Evita asignar datos de objeto copiado a uno ya existente/inicializado
 
-    void agregarAlInicio(Tema* tema);
-    void agregarAlFinal(Tema* tema);
-    void moverAlInicio(int indice);
+    void agregarAlInicio(Tema* tema); // Inserta un nuevo tema en el indice 0 desplazando los demas a la derecha
+    void agregarAlFinal(Tema* tema); // Agrega un tema al final (usado al cargar el archivo de entrada)
+    void moverAlInicio(int indice); // Mueve un tema existente al indice 0 cuando recibe una nueva respuesta
 
-    Tema* buscarPorId(const std::string& id) const;
-    int buscarIndicePorId(const std::string& id) const;
-    bool existeId(const std::string& id) const;
-    bool eliminarEnIndice(int indice);
+    Tema* buscarPorId(const std::string& id) const; // Busca un tema dado su Id y retorna su direccion
+    int buscarIndicePorId(const std::string& id) const; // Busca un tema y retorna su indice numérico
+    bool existeId(const std::string& id) const; // Verifica si un Id de tema ya existe en el arreglo
+    bool eliminarEnIndice(int indice); // Elimina el tema ubicado en un indice especifico y reordena el arreglo
 
-    int getCantidad() const;
-    Tema* obtenerEn(int indice) const;
+    // Getter
+    int getCantidad() const; // Retorna la cantidad de temas almacenados
+    Tema* obtenerEn(int indice) const; // Retorna el tema ubicado en una posicion especifica
 };
 
 #endif // ARREGLOTEMAS_H

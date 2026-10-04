@@ -1,0 +1,3 @@
+/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/Taller1_ForoComunitario.dir
+/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ignaciosalomon/Desktop/taller 1 Scott/cmake-build-debug/CMakeFiles/rebuild_cache.dir
